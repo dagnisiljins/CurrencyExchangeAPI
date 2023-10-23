@@ -15,11 +15,11 @@ $convertFrom = 0;
 
 
 $apiFetcher = new Api();
-$conversion = $apiFetcher->search((float)$amount, $currency, $convertTo);
+$conversion = $apiFetcher->search((float)$amount, strtoupper($currency), strtoupper($convertTo));
 //var_dump($conversion);
 
 $convertedAmount = $conversion->getCalculatedAmount();
-echo 'Converted amount is: ' . $convertTo . ' ' . round($convertedAmount, 2) . PHP_EOL;
+echo 'Converted amount is: ' . strtoupper($convertTo) . ' ' . round($convertedAmount, 2) . PHP_EOL;
 
 
 
