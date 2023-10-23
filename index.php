@@ -5,12 +5,17 @@ declare(strict_types=1);
 require_once 'vendor/autoload.php';
 use App\Api;
 
-$convertFrom = readline('Enter the currency to convert from: ');
-$amountToConvert = readline('Enter the amount to convert: ');
+$convertRequest = readline('Enter the amount and currency to convert from(Ex.100 USD): ');
+list($amount, $currency) = explode(' ', $convertRequest);
+
 $convertTo = readline('Enter the currency to convert to: ');
 
+$amountToConvert = 0;
+$convertFrom = 0;
+
+
 $apiFetcher = new Api();
-$conversion = $apiFetcher->search((float)$amountToConvert, $convertFrom, $convertTo);
+$conversion = $apiFetcher->search((float)$amount, $currency, $convertTo);
 //var_dump($conversion);
 
 $convertedAmount = $conversion->getCalculatedAmount();
