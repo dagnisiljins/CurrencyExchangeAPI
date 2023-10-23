@@ -10,7 +10,7 @@ class Convert
     private float $initial;
     private float $converted;
 
-    public function __construct(float $amount, float $initial,float $converted)
+    public function __construct(float $amount, float $initial, float $converted)
     {
         $this->amount = $amount;
         $this->initial = $initial;
